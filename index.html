@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Places I want to go, places I will go in the near future and places that I went to.">
+        <meta name="author" content="Victor Chen">
+
+        <title>My World Map</title>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    </head>
+
+    <body>
+        <header>
+            <h1>My World Map</h1>
+        </header>
+        <div class="content active">
+            <div id="world" class="map"></div>
+            <div id="country" class="map"></div>
+        </div>
+        <div class="form">
+            <div class="triangle left" onclick="togglePanel()"></div>
+        </div>
+        <footer>
+            <h5>This page is mantained by <a href="https://github.com/vsyc03">Victor Chen</a></h5>
+        </footer>
+
+        <!-- D3 JS -->
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <!-- TopoJSON JS -->
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <!-- Page Script -->
+        <script src="js/script.js"></script>
+        <!-- World Map Script-->
+        <script src="js/WorldMap.js"></script>
+        <!-- Country Map Script -->
+        <script src="js/InfoList.js"></script>
+    </body>
+</html>

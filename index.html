@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <header>
+        <header onclick="goToTop()">
             <h1>My World Map</h1>
         </header>
         <div class="content">
@@ -20,7 +20,7 @@
             <div id="country" class="map"></div>
         </div>
         <div class="form">
-            <div class="triangle left" onclick="togglePanel()"></div>
+            <div class="key left" onclick="togglePanel()" onmouseover="openthedoor()" onmouseout="closethedoor()"></div>
         </div>
         <footer>
             <h5>This page is mantained by <a href="https://github.com/vsyc03">Victor Chen</a></h5>

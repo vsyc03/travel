@@ -84,7 +84,7 @@ class WorldMap {
         }
         that.nextPhase(d, that);
         });
-        this.drawView();
+        this.draw();
 
         // White box to wrap scale
         this.canvas

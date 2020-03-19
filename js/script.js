@@ -1,15 +1,59 @@
+goToTop = () => {
+    document.getElementsByClassName("content")[0].scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+}
+
+openthedoor = () => {
+    let key = document.getElementsByClassName("key")[0]
+
+    if(key.className.includes("left")) {
+        key.innerHTML = "Open"
+        key.className = "key left opened"
+    } else {
+        key.innerHTML = "Close"
+        key.className = "key right opened"
+    }
+}
+
+closethedoor = () => {
+    let key = document.getElementsByClassName("key")[0]
+
+    if(key.className.includes("left")) {
+        key.innerHTML = ""
+        key.className = "key left"
+    } else {
+        key.innerHTML = ""
+        key.className = "key right"
+    }
+}
+
 togglePanel = () => {
     let f = document.getElementsByClassName("form")[0]
-    let t = document.getElementsByClassName("triangle")[0]
+    let t = document.getElementsByClassName("key")[0]
 
     if(f.className.includes("active")) {
         f.className = "form"
-        t.className = "triangle left"
+        t.className = "key left"
     } else {
         f.className = "form active"
-        t.className = "triangle right"
+        t.className = "key right"
     }
 }
+
+
+
+// .menu:hover {
+//     border: 0;
+//     width: 60px;
+//     height: 40px;
+//     background-color: #888888;
+// }
+
+// .menu:hover.left {
+//     transform: translate(-50px);
+// }
 
 let width = document.getElementById("world").offsetWidth + 18
 let height = document.getElementById("world").offsetHeight - 2

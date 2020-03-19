@@ -50,23 +50,26 @@ header {
     border: 2px solid #000000;
     width: calc(100% - 30px);
     height: 90%;
+    background-color: #99ddff;
 }
 
 .form {
     position: fixed;
     top: 10%;
     right: 0;
+    border-left: 1px solid black;
     width: 0;
     height: 87%;
     max-height: calc(90% - 20px);
     background-color: #ffffff;
+    transition: 0.5s;
 }
 
 .form.active {
     width: 20%;
 }
 
-.triangle {
+.key {
     border-top: 20px solid transparent;
     border-bottom: 20px solid transparent;
     width: 0;
@@ -76,13 +79,27 @@ header {
 .left {
     right: 0;
     border-left: 0 solid transparent;
-    border-right: 10px solid #888888;
+    border-right: 10px solid #000000;
     transform: translate(-10px);
 }
 
 .right {
-    border-left: 10px solid #888888;
+    border-left: 10px solid #000000;
     border-right: 0 solid transparent;
+}
+
+.opened {
+    border: 0 !important;
+    width: 60px !important;
+    height: 40px !important;
+    background-color: #000000;
+    text-align: center;
+    color: #ffffff;
+    line-height: 40px;
+}
+
+.opened.left {
+    transform: translate(-60px) !important;
 }
 
 footer {

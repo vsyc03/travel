@@ -1,3 +1,4 @@
+// Site's main .js functions
 goToTop = () => {
     document.getElementsByClassName("content")[0].scrollTo({
         top: 0,
@@ -42,19 +43,7 @@ togglePanel = () => {
     }
 }
 
-
-
-// .menu:hover {
-//     border: 0;
-//     width: 60px;
-//     height: 40px;
-//     background-color: #888888;
-// }
-
-// .menu:hover.left {
-//     transform: translate(-50px);
-// }
-
+// Maps loading
 let width = document.getElementById("world").offsetWidth + 18
 let height = document.getElementById("world").offsetHeight - 2
 let cf = "none"

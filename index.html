@@ -21,6 +21,25 @@
         </div>
         <div class="form">
             <div class="key left" onclick="togglePanel()" onmouseover="openthedoor()" onmouseout="closethedoor()"></div>
+
+            <form>
+                <h1>Adicionar nova viagem</h1>
+                <div class="field">
+                    <label for="country">País: </label><br>
+                    <select id="country" name="country" style="min-width:100%; max-width:100%;">
+                        <!-- <option value="value_to_save">text_to_user</option> -->
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="state">Estado/Província: </label><br>
+                    <input type="text" id="state" name="state" value="" size="35" />
+                </div>
+                <div class="field">
+                    <label for="plan">Planeja ir? </label>
+                    <input type="checkbox" id="plan" name="plan" />
+                </div>
+                <button type="button" id="submit">Cadastrar</button>
+            </form>
         </div>
         <footer>
             <h5>This page is mantained by <a href="https://github.com/vsyc03">Victor Chen</a></h5>

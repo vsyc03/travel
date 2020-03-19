@@ -63,10 +63,22 @@ header {
     max-height: calc(90% - 20px);
     background-color: #ffffff;
     transition: 0.5s;
+    text-align: center
 }
 
 .form.active {
-    width: 20%;
+    width: 300px;
+}
+
+.form .field {
+    margin: 20px;
+    text-align: left;
+}
+
+.input {
+    float: none;
+    width: auto;
+    overflow: hidden;
 }
 
 .key {

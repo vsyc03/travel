@@ -48,14 +48,14 @@ class WorldMap {
     data(data) {
         this.dataset = data;
         this.visited = data.map(function(d) {
-            return d["states"].filter(function(e) { return e["went"]; });
+            return (d["states"].filter(function(e) { return e["went"]; })).length;
         });
         this.percentage = data.map(function(d) {
             let dividend = 0;
             let divisor  = d["states"].length;
 
             for(let i = 0; i < divisor; i++) {
-                if(d["states"][i]["went"] === true) {console.log(d["states"][i]["name"])
+                if(d["states"][i]["went"] === true) {
                     dividend += 1;
                 }
             }
@@ -77,26 +77,33 @@ class WorldMap {
             .attr("d",this.path)
             .on('mouseover', function(d){
                 div.transition().duration(200).style("opacity", .9);
-                let a = that.dataset.indexOf(d.properties.name);console.log(d)
+                let a = that.searchCountry(d.properties.name);
+                let px = d3.event.pageX, py = d3.event.pageY+20;
+
+                if(px >= 800) px = 800;
+
+                if(py >= 600) py = py-60;
+
                 if(a == -1) {
-                    div.html(d.properties.name+"<br/> Zero Empresas")
-                    .style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
+                    div.html(d.properties.name+"<br/> not recognized as country.")
+                        .style("left", px + "px").style("top", py + "px");
                 } else {
-                    div.html(d.properties.name+"<br/>"+that.l_subdiv[a]+" Empresas")
-                    .style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
+                    div.html(d.properties.name+"<br/>"+that.visited[a]+" Subdivisions/States/Provinces visited.")
+                        .style("left", px + "px").style("top", py + "px");
                 }
             })
             .on('mouseout', function(d){
-            div.transition().duration(200).style("opacity", 0);  
-            div.html("");
+                div.transition().duration(200).style("opacity", 0);  
+                div.html("");
             })
-            .on("dblclick", function(d) { 
-            if(d3.select(this).style("stroke-width") != 3) {
-            d3.select(this).style("stroke-width",3).style("stroke","white");
-            } else {
-            d3.select(this).style("stroke-width",1.).style("stroke","white");
-            }
-            that.nextPhase(d, that);
+            .on("dblclick", function(d) {
+                if(d3.select(this).style("stroke-width") != 3) {
+                    d3.selectAll(".country").style("stroke-width",0.5).style("stroke","white");
+                    d3.select(this).style("stroke-width",3).style("stroke","white");
+                } else {
+                    d3.select(this).style("stroke-width",0.5).style("stroke","white");
+                }
+                that.nextPhase(d, that);
             });
         this.draw();
     }
@@ -109,10 +116,12 @@ class WorldMap {
             .style("fill",function(d) {
                 if(that.searchCountry(d.properties.name) === -1) {
                     return "000000";
-                } else {console.log(that.percentage[that.searchCountry(d.properties.name)])
+                } else {
                     return that.cScale(that.percentage[that.searchCountry(d.properties.name)]);
                 }
-            });
+            })
+            .style("stroke", "#ffffff")
+            .style("stroke-width", 0.5);
     }
 
     drawScale() {

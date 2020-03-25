@@ -53,6 +53,11 @@ header {
     background-color: #99ddff;
 }
 
+.legend {
+    width: 200px;
+    height: 90px;
+}
+
 .form {
     position: fixed;
     top: 10%;
@@ -70,14 +75,22 @@ header {
     width: 300px;
 }
 
+.form h1 {
+    margin-bottom: 50px;
+}
+
 .form .field {
-    margin: 20px;
+    margin: 30px 20px;
     text-align: left;
 }
 
+.form h3 {
+    margin: 0
+}
+
 .input {
-    float: none;
     width: auto;
+    float: none;
     overflow: hidden;
 }
 

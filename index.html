@@ -22,23 +22,31 @@
         <div class="form">
             <div class="key left" onclick="togglePanel()" onmouseover="openthedoor()" onmouseout="closethedoor()"></div>
 
-            <form>
-                <h1>Adicionar nova viagem</h1>
+            <div>
+                <h1>Add new travel</h1>
                 <div class="field">
-                    <label for="country">País: </label><br>
-                    <select id="country" name="country" style="min-width:100%; max-width:100%;">
-                        <!-- <option value="value_to_save">text_to_user</option> -->
+                    <label for="form-country"><h3>Country:</h3></label>
+                    <select id="form-country" name="form-country" style="min-width:100%; max-width:100%;" onchange="loadSubdivs()">
+                        <option selected="true" disabled="disabled" value="">Country</option>
                     </select>
                 </div>
                 <div class="field">
-                    <label for="state">Estado/Província: </label><br>
-                    <input type="text" id="state" name="state" value="" size="35" />
+                    <label for="form-state"><h3>Subdivision / State / Province:</h3></label>
+                    <select id="form-state" name="form-state" style="min-width:100%; max-width:100%;">
+                        <option selected="true" disabled="disabled" value="">State</option>
+                    </select>
                 </div>
                 <div class="field">
-                    <label for="plan">Planeja ir? </label>
-                    <input type="checkbox" id="plan" name="plan" />
+                    <h3>Plan to travel or already went?</h3>
+                    <input type="radio" id="form-plan" name="form-situation" value="plan" />
+                    <label for="plan">I plan to go</label><br>
+                    <input type="radio" id="form-went" name="form-situation" value="went" checked />
+                    <label for="went">I already went there</label><br>
                 </div>
-                <button type="button" id="submit">Cadastrar</button>
+                <div class="field">
+                    <input type="hidden" id="form-admin" name="form-admin" value="false" />
+                </div>
+                <button type="button" id="submit" onclick="addnewtravel()">Add to My WorldMap</button>
             </form>
         </div>
         <footer>
